@@ -35,7 +35,8 @@ import Head from "next/head";
 import { useState } from "react";
 import { app } from "../../firebaseConfig";
 import { GetServerSideProps } from "next";
-import Image from 'next/image';
+import Typewriter from "typewriter-effect";
+
 
 const primaryFeatures = [
   {
@@ -178,28 +179,27 @@ export default function Home() {
               }}/>
           </div>
 
+          <nav className="flex items-center justify-evenly p-4 bg-transparent shadow-none">
+            <div className="flex items-center">
+              <img className="h-14" src="/serenlogo.png" alt="Seren.fyi Logo"/>
+            </div>
+            <div className="flex items-center">
+              <button
+                  className="py-2 px-4 text-lg font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600">Sign up ↗
+              </button>
+              <button
+                  className="ml-4 py-2 px-4 text-lg font-medium text-blue-500 bg-transparent border border-blue-500 rounded-md hover:text-white hover:bg-blue-500">Sign in ↗
+              </button>
+            </div>
+          </nav>
+
           <div className="flex items-center justify-center">
             <div className="mx-auto max-w-7xl px-6 pb-8 pt-10 sm:pb-28 lg:flex lg:px-8 lg:pt-40">
-              <div className="mx-auto max-w-4xl flex-shrink-0 lg:mx-0 lg:max-w-3xl lg:pt-8">
-                <img className="h-24 mx-auto" src="/serenlogo.png" alt="Seren.fyi Logo" />
-                <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  Build. Share. Connect.
-                </h1>
-                <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Filler text
-                </p>
-                <div className="flex">
-                  <button className="mt-8 flex items-center px-6 py-3 text-lg font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600">
-                    Sign up ↗
-                  </button>
-                  <button className="mt-8 flex items-center px-6 py-3 text-lg font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 ml-4">
-                    Learn More ↗
-                  </button>
-                </div>
-              </div>
+              <h1 className="mt-10 text-6xl font-bold tracking-tight text-white sm:text-8xl">
+                <Typewriter options={{strings:["Build. Share. Connect.","Powered by AI."], autoStart:true, loop:true, delay:200}}/>
+              </h1>
             </div>
           </div>
-
 
         </div>
 
