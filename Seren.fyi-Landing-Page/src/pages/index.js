@@ -242,19 +242,19 @@ export default function Home() {
                     <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
                         <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
                             {primaryFeatures.map((feature) => (
-                                <div key={feature.name} className="flex flex-col">
+                                <div key={feature.name} className="flex flex-col items-center">
                                     <dt className="text-base font-semibold leading-7 text-white">
                                         <div
-                                            className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-[#ad6f26]">
+                                            className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#ad6f26]">
                                             <feature.icon
                                                 className="h-6 w-6 text-white"
                                                 aria-hidden="true"
                                             />
                                         </div>
-                                        {feature.name}
                                     </dt>
-                                    <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-300">
-                                        <p className="flex-auto">{feature.description}</p>
+                                    <dt className="mt-4 font-semibold text-white text-center">{feature.name}</dt>
+                                    <dd className="mt-2 flex flex-auto flex-col text-base leading-7 text-gray-300">
+                                        <p className="flex-auto text-center">{feature.description}</p>
                                     </dd>
                                 </div>
                             ))}
@@ -310,7 +310,7 @@ export default function Home() {
                                     <feature.icon className="h-6 w-6 text-white" aria-hidden="true"/>
                                 </div>
                                 <dt className="mt-4 font-semibold text-white text-center">{feature.name}</dt>
-                                <dd className="mt-2 leading-7 text-gray-400">
+                                <dd className="mt-2 leading-7 text-gray-400 text-center">
                                     {feature.description}
                                 </dd>
                             </div>
