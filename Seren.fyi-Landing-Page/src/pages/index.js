@@ -159,25 +159,18 @@ export default function Home() {
 
                     <nav className="flex items-center justify-evenly p-4 bg-transparent shadow-none">
                         <div className="flex items-center">
-                            <img className="h-14" src="/serenlogo.png" alt="Seren.fyi Logo"/>
+                            <img className="h-16" src="/serenlogo.png" alt="Seren.fyi Logo"/>
                         </div>
-                        <div className="flex items-center">
+                        <div className="flex items-center -mt-3">
                             <a href="#Launch">
-                                <button
-                                    className="py-2 px-4 text-lg font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600">Sign
-                                    up ↗
-                                </button>
-                            </a>
-                            <a href="#Launch">
-                                <button
-                                    className="ml-4 py-2 px-4 text-lg font-medium text-blue-500 bg-transparent border border-blue-500 rounded-md hover:text-white hover:bg-blue-500">Sign
-                                    in ↗
+                                <button className="text-lg py-2 px-3 md:px-4 font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600">
+                                    Sign up ↗
                                 </button>
                             </a>
                         </div>
                     </nav>
 
-                    <div className="flex items-center justify-center flex-col">
+                    <div className="flex items-center justify-center flex-col px-6">
                         <div className="mx-auto max-w-7xl px-6 pb-8 pt-10 sm:pb-28 lg:flex lg:px-8 lg:pt-40">
                             <h1 className="mt-10 text-6xl font-bold tracking-tight text-white sm:text-8xl">
                                 <Typewriter options={{
