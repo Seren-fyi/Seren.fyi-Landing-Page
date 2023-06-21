@@ -27,6 +27,7 @@ import {useState} from "react";
 import {app} from "../../firebaseConfig";
 import {GetServerSideProps} from "next";
 import Typewriter from "typewriter-effect";
+import { Link, animateScroll as scroll } from 'react-scroll';
 
 
 const primaryFeatures = [
@@ -162,11 +163,13 @@ export default function Home() {
                             <img className="h-16" src="/serenlogo.png" alt="Seren.fyi Logo"/>
                         </div>
                         <div className="flex items-center -mt-3">
-                            <a href="#Launch">
-                                <button className="text-lg py-2 px-3 md:px-4 font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600">
-                                    Sign up ↗
-                                </button>
-                            </a>
+                            <Link to="Launch" smooth={true} duration={600}>
+                                <a href="#Launch">
+                                    <button className="text-lg py-2 px-3 md:px-4 font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600">
+                                        Sign up ↗
+                                    </button>
+                                </a>
+                            </Link>
                         </div>
                     </nav>
 
@@ -189,12 +192,14 @@ export default function Home() {
                             Welcome to the future of collaboration.
                         </p>
                         <div className="mt-12">
-                            <a href="#Learn more">
-                                <button
-                                    className="px-8 py-3 font-bold text-white bg-blue-500 rounded-lg hover:bg-blue-600">
-                                    Learn more
-                                </button>
-                            </a>
+                            <Link to="Learn more" smooth={true} duration={600}>
+                                <a href="#Learn more">
+                                    <button
+                                        className="px-8 py-3 font-bold text-white bg-blue-500 rounded-lg hover:bg-blue-600">
+                                        Learn more
+                                    </button>
+                                </a>
+                            </Link>
                         </div>
                     </div>
 
