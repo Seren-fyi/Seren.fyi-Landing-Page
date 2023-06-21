@@ -22,12 +22,10 @@ import {
     getDocs,
     serverTimestamp
 } from "firebase/firestore";
-import Head from "next/head";
 import {useState} from "react";
 import {app} from "../../firebaseConfig";
-import {GetServerSideProps} from "next";
 import Typewriter from "typewriter-effect";
-import { Link, animateScroll as scroll } from 'react-scroll';
+import {Link} from 'react-scroll';
 
 
 const primaryFeatures = [
@@ -72,6 +70,23 @@ const primaryFeatures = [
             "Explore boundless possibilities through seamless integration of expertise across fields with our smart tagging system, fueling innovation and expanding horizons.",
         href: "#",
         icon: GlobeEuropeAfricaIcon
+    }
+];
+
+const launchInformation = [
+    {
+        name: "Launch",
+        description:
+            "Get ready for our launch in late summer. Sign up now for future early access and be among the first to experience Seren.fyi firsthand!",
+        href: "#",
+        icon: CalendarDaysIcon
+    },
+    {
+        name: "Early Access",
+        description:
+            "Secure exclusive early access privileges and join our enthusiastic community by signing up today, ensuring you're among the first to access our highly anticipated launch!",
+        href: "#",
+        icon: BoltIcon
     }
 ];
 
@@ -165,7 +180,8 @@ export default function Home() {
                         <div className="flex items-center -mt-3">
                             <Link to="Launch" smooth={true} duration={600}>
                                 <a href="#Launch">
-                                    <button className="text-lg py-2 px-3 md:px-4 font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600">
+                                    <button
+                                        className="text-lg py-2 px-3 md:px-4 font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600">
                                         Sign up ↗
                                     </button>
                                 </a>
@@ -288,31 +304,20 @@ export default function Home() {
                     </div>
 
                     <div className="mt-10 max-w-3xl mx-auto grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
-                        <div className="flex flex-col items-center">
-                            <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
-                                <CalendarDaysIcon className="h-6 w-6 text-white" aria-hidden="true"/>
+                        {launchInformation.map((feature) => (
+                            <div key={feature.name} className="flex flex-col items-center">
+                                <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+                                    <feature.icon className="h-6 w-6 text-white" aria-hidden="true"/>
+                                </div>
+                                <dt className="mt-4 font-semibold text-white text-center">{feature.name}</dt>
+                                <dd className="mt-2 leading-7 text-gray-400">
+                                    {feature.description}
+                                </dd>
                             </div>
-                            <dt className="mt-4 font-semibold text-white text-center">Launch</dt>
-                            <dd className="mt-2 leading-7 text-gray-400">
-                                Get ready for our launch in late summer. Sign up now for future early access and be
-                                among the first to experience it firsthand.
-                            </dd>
-                        </div>
-                        <div className="flex flex-col items-center">
-                            <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
-                                <BoltIcon className="h-6 w-6 text-white" aria-hidden="true"/>
-                            </div>
-                            <dt className="mt-4 font-semibold text-white text-center">Early Access</dt>
-                            <dd className="mt-2 leading-7 text-gray-400">
-                                Secure exclusive early access privileges and join our enthusiastic community by signing
-                                up today, ensuring you're among the first to access our highly anticipated launch.
-                            </dd>
-                        </div>
+                        ))}
                     </div>
 
-
                 </div>
-
             </main>
 
             {/* Footer */}
