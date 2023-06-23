@@ -1,8 +1,6 @@
-import sendgrid from "@sendgrid/mail";
+import sendgrid from '@sendgrid/mail';
 
-sendgrid.setApiKey(
-  "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"
-);
+sendgrid.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_KEY);
 
 async function sendEmail(req, res) {
   try {
@@ -10,8 +8,8 @@ async function sendEmail(req, res) {
     await sendgrid.send({
       to: req.body.email, // Your email where you'll receive emails
       from: {
-        email: "benny@seren.fyi",
-        name: "Benny Chinvanich"
+        email: 'benny@seren.fyi',
+        name: 'Benny Chinvanich',
       },
       subject: req.body.subject,
       html: `
@@ -25,14 +23,14 @@ async function sendEmail(req, res) {
       <p>Benny Chinvanich</p>
       <p>Lead Tech and Operations</p>
       <p>Seren.fyi</p>
-    `
+    `,
     });
   } catch (error) {
     // console.log(error);
     return res.status(error.statusCode || 500).json({ error: error.message });
   }
 
-  return res.status(200).json({ error: "" });
+  return res.status(200).json({ error: '' });
 }
 
 export default sendEmail;
