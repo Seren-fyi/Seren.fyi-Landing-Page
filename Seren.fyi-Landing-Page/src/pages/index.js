@@ -213,11 +213,13 @@ export default function Home() {
               </h1>
             </div>
             <p className="max-w-3xl text-lg leading-8 text-gray-300">
-              Unlock the power of collaboration on a cutting-edge platform
-              designed for programmers of all levels. Amplify your network,
-              supercharge your projects, and turn dreams into breakthroughs in
-              the ultimate innovation hub. Welcome to the future of
-              collaboration.
+              Unlock the power of collaboration across all creative fields on a
+              cutting-edge platform designed for creators of every discipline.
+              Amplify your network, supercharge your projects, and turn ideas
+              into breakthrough innovations in the ultimate innovation hub.
+              Welcome to the future of collaboration, where programmers,
+              artists, writers, musicians, designers, and professionals from
+              every single creative domain come together.
             </p>
             <div className="mt-12">
               <Link to="Learn more" smooth={true} duration={600}>
