@@ -6,7 +6,7 @@ import {
   CpuChipIcon,
   UserGroupIcon,
   GlobeEuropeAfricaIcon,
-  LightBulbIcon
+  LightBulbIcon,
 } from "@heroicons/react/24/outline";
 
 {
@@ -20,7 +20,7 @@ import {
   query,
   where,
   getDocs,
-  serverTimestamp
+  serverTimestamp,
 } from "firebase/firestore";
 import { useState } from "react";
 import { app } from "../../firebaseConfig";
@@ -33,43 +33,43 @@ const primaryFeatures = [
     description:
       "Showcase your projects, achievements, and skills in a unique portfolio that goes beyond the traditional resume, creating a dynamic representation of your creative journey.",
     href: "#",
-    icon: CodeBracketIcon
+    icon: CodeBracketIcon,
   },
   {
     name: "Community Collaboration",
     description:
       "Find like-minded creators from every corner of the globe, brainstorm ideas, and collaborate on projects within a diverse, inclusive network, breaking down barriers between dreamers and doers.",
     href: "#",
-    icon: UserGroupIcon
+    icon: UserGroupIcon,
   },
   {
     name: "Idea Incubator",
     description:
       "Nurture your ideas with our integrated suite of AI tools, effortlessly turning rough concepts into well-defined projects, regardless of your technical proficiency.",
     href: "#",
-    icon: LightBulbIcon
+    icon: LightBulbIcon,
   },
   {
     name: "Expert Mentorship",
     description:
       "Gain insights from industry veterans and leading experts who provide guidance and advice, accelerating your learning and enabling you to refine your projects.",
     href: "#",
-    icon: UserIcon
+    icon: UserIcon,
   },
   {
     name: "AI-Driven Templates",
     description:
       "Experience the power of AI with personalized project templates that anticipate your needs, automatically shaping the blueprint of your ideas, and setting the stage for an exceptional creation journey.",
     href: "#",
-    icon: CpuChipIcon
+    icon: CpuChipIcon,
   },
   {
     name: "Explore Infinite Possibilities",
     description:
       "Explore boundless possibilities through seamless integration of expertise across fields with our smart tagging system, fueling innovation and expanding horizons.",
     href: "#",
-    icon: GlobeEuropeAfricaIcon
-  }
+    icon: GlobeEuropeAfricaIcon,
+  },
 ];
 
 const launchInformation = [
@@ -78,15 +78,15 @@ const launchInformation = [
     description:
       "Get ready for our launch in late summer. Sign up now for future early access and be among the first to experience Seren.fyi firsthand!",
     href: "#",
-    icon: CalendarDaysIcon
+    icon: CalendarDaysIcon,
   },
   {
     name: "Early Access",
     description:
       "Secure exclusive early access privileges and join our enthusiastic community by signing up today, ensuring you're among the first to access our highly anticipated launch!",
     href: "#",
-    icon: BoltIcon
-  }
+    icon: BoltIcon,
+  },
 ];
 
 const db = getFirestore(app);
@@ -99,18 +99,18 @@ export default function Home() {
       const docRef = collection(db, "subscribedEmail");
       await addDoc(docRef, {
         email: email,
-        created: serverTimestamp()
+        created: serverTimestamp(),
       });
 
       const res = await fetch("/api/sendgrid", {
         body: JSON.stringify({
           email: email,
-          subject: "Thanks for joining the Seren.fyi Journey!"
+          subject: "Thanks for joining the Seren.fyi Journey!",
         }),
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        method: "POST"
+        method: "POST",
       });
 
       const { error } = await res.json();
@@ -172,7 +172,7 @@ export default function Home() {
               style={{
                 clipPath:
                   "polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, " +
-                  "55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)"
+                  "55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)",
               }}
             />
           </div>
@@ -200,14 +200,14 @@ export default function Home() {
           </nav>
 
           <div className="flex items-center justify-center flex-col px-6">
-            <div className="mx-auto max-w-7xl px-6 pb-8 pt-10 sm:pb-28 lg:flex lg:px-8 lg:pt-40">
+            <div className="mx-auto max-w-7xl px-6 pb-8 pt-10 sm:pb-28 lg:flex lg:px-8 lg:pt-40" style={{height: '320px'}}>
               <h1 className="mt-10 text-6xl font-bold tracking-tight text-white sm:text-8xl">
                 <Typewriter
                   options={{
                     strings: ["Build. Share. Connect.", "Powered by AI."],
                     autoStart: true,
                     loop: true,
-                    delay: 220
+                    delay: 220,
                   }}
                 />
               </h1>
@@ -223,11 +223,10 @@ export default function Home() {
             </p>
             <div className="mt-12">
               <Link to="Learn more" smooth={true} duration={600}>
-                <a href="#Learn more">
-                  <button className="px-8 py-3 font-bold text-white bg-[#cf8d40] rounded-lg hover:bg-blue-600">
-                    Learn more
-                  </button>
-                </a>
+                <button className="px-8 py-3 font-bold text-white bg-[#cf8d40] rounded-lg hover:bg-blue-600">
+                  Learn more
+                  <a href="#Learn more"></a>
+                </button>
               </Link>
             </div>
           </div>
